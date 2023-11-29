@@ -20,4 +20,5 @@ Route::get('/', function () {
 
 Route::get('/barang',[barangController::class, 'index']);
 Route::post('/barang',[barangController::class, 'store']);
-Route::get('/dataBarang/{id}',[barangController::class, 'show']);
+Route::get('/dataBarang', [barangController::class, 'list']);
+

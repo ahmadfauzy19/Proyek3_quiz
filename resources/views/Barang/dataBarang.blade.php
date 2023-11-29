@@ -1,35 +1,29 @@
-@extends("layout")
+@extends('layout')
 
 @section('konten')
 
+    <h1>Data Barang</h1>
+    
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">ID Barang</th>
+                <th scope="col">Nama Barang</th>
+                <th scope="col">Satuan</th>
+                <th scope="col">Harga Satuan</th>
+                <th scope="col">Stok</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
+            @foreach($barang as $item)
+                <tr>
+                    <td>{{ $item->id }}</td>
+                    <td>{{ $item->nama_barang }}</td>
+                    <td>{{ $item->satuan }}</td>
+                    <td>{{ $item->harga_satuan }}</td>
+                    <td>{{ $item->stok }}</td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
 

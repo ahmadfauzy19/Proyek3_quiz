@@ -39,12 +39,14 @@ class barangController extends Controller
         $existingBarang = Barang::find($request->id_barang);
 
         if ($existingBarang) {
+            // dd($existingBarang);
             // Jika barang sudah ada, update stoknya
             $existingStock = $existingBarang->stok;
             $updatedStock = $existingStock + $request->stok;
 
             // Update stok barang yang sudah ada
-            $existingBarang->update(['kuantitas' => $updatedStock]);
+            Barang::where('id',$existingBarang['id'])->update(['stok' => $updatedStock]);
+
 
             return redirect('/barang')->with('success', 'Stok barang berhasil diperbarui. Kuantitas: ' . $updatedStock);
         } else {
@@ -62,16 +64,12 @@ class barangController extends Controller
         }
     }
 
-    public function show($id)
+    public function list()
     {
-        $barang = Barang::find($id);
-
-        if (!$barang) {
-            return redirect('/barang')->with('error', 'Barang tidak ditemukan.');
-        }
-
+        $barang = Barang::all();
         return view('Barang.dataBarang', compact('barang'));
     }
+
 
 
     public function destroy(Barang $barang)
