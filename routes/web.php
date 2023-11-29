@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\barangController;
+use App\Http\Controllers\pembelianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,7 @@ Route::get('/', function () {
 Route::get('/barang',[barangController::class, 'index']);
 Route::post('/barang',[barangController::class, 'store']);
 Route::get('/dataBarang', [barangController::class, 'list']);
+
+Route::get('/pembelian',[pembelianController::class, 'index']);
+Route::post('/pembelian',[pembelianController::class, 'store']);
 

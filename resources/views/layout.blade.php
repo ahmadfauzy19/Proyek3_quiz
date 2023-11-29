@@ -40,7 +40,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Tenan</a>
+                        <a class="nav-link" href="/pembelian">Pembelian</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Kasir</a>
